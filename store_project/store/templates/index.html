@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Store</title>
+
+    <style>
+        body {
+            background-color: #101827;
+            color: white;
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #38bdf8;
+        }
+
+        p {
+            color: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Product Store - Django Lookups</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Exact</h2>
+        {% for product in product_exact %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Contains</h2>
+        {% for customer in customers_contains %}
+            <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+        {% empty %}
+            <p>No customers found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Startswith</h2>
+        {% for product in product_startswith %}
+            <p>{{ product.name }}</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Endswith</h2>
+        {% for product in product_endswith %}
+            <p>{{ product.name }}</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Greater Than (gt)</h2>
+        {% for product in products_gt %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Greater Than or Equal (gte)</h2>
+        {% for product in products_gte %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Less Than (lt)</h2>
+        {% for product in products_lt %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Less Than or Equal (lte)</h2>
+        {% for product in products_lte %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Range</h2>
+        {% for product in products_range %}
+            <p>{{ product.name }} - {{ product.price }} GEL</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>In</h2>
+        {% for product in products_in %}
+            <p>{{ product.name }} - ID: {{ product.id }}</p>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Is Null</h2>
+        {% for customer in customers_isnull %}
+            <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+        {% empty %}
+            <p>No customers found.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>
